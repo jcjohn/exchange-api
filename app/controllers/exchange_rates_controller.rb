@@ -6,7 +6,6 @@ class ExchangeRatesController < ApplicationController
       if new_rates.rates.present?
         @exchange_rate = ExchangeRate.create(base_code: new_rates.base_code, rates: new_rates.rates)
       end
-      byebug
     end
 
     exchange_amount = (params[:amount].to_d * @exchange_rate.rates.send(params[:exchange_code].to_sym).to_d).round(2)
