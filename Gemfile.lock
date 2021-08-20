@@ -79,7 +79,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
@@ -87,6 +89,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.3)
@@ -133,7 +136,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
@@ -150,15 +152,15 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   listen (~> 3.2)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.6.2p47
+   ruby 2.6.8p205
 
 BUNDLED WITH
    2.1.4
