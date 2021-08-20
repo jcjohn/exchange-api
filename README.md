@@ -4,7 +4,7 @@ I have dockerized this project.
 
 In order to get it up and running, one needs only to run `docker compose up -d`
 
-Once completed, run ```shell
+Once completed, run ```
 docker compose exec runner bundle install
 docker compose exec runner bundle exec rails db:create db:migrate
 docker compose up -d
