@@ -10,6 +10,6 @@ class ExchangeRatesController < ApplicationController
 
     exchange_amount = (params[:baseAmount].to_d * @exchange_rate&.rates&.send(params[:exchangeCode].to_sym).to_d).round(2)
 
-    render json: { exchangAmount: exchange_amount }
+    render json: { exchangeAmount: exchange_amount }
   end
 end

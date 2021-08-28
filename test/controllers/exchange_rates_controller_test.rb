@@ -44,11 +44,11 @@ class ExchangeRatesControllerTest < ActionDispatch::IntegrationTest
       end
     end
 
-    get '/exchange_rates', params: { base_code: 'USD', exchange_code: 'CAD', amount: 2 }
+    get '/exchange_rates', params: { baseCode: 'USD', exchangeCode: 'CAD', baseAmount: 2 }
     json = JSON.parse(response.body)
 
-    assert_equal true, json.key?('exchange_amount')
-    assert_equal 2.84.to_d, json['exchange_amount'].to_d
+    assert_equal true, json.key?('exchangeAmount')
+    assert_equal 2.84.to_d, json['exchangeAmount'].to_d
   end
 
   test 'returns the value from the API' do
@@ -58,10 +58,10 @@ class ExchangeRatesControllerTest < ActionDispatch::IntegrationTest
       end
     end
 
-    get '/exchange_rates', params: { base_code: 'USD', exchange_code: 'CAD', amount: 2 }
+    get '/exchange_rates', params: { baseCode: 'USD', exchangeCode: 'CAD', baseAmount: 2 }
     json = JSON.parse(response.body)
 
-    assert_equal true, json.key?('exchange_amount')
-    assert_equal 2.88.to_d, json['exchange_amount'].to_d
+    assert_equal true, json.key?('exchangeAmount')
+    assert_equal 2.88.to_d, json['exchangeAmount'].to_d
   end
 end
