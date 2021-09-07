@@ -2,6 +2,7 @@ class ExchangeRateApi
   require 'net/http'
   
   ServerError = Class.new(StandardError)
+  NonJsonResponse = Class.new(StandardError)
   
   attr_accessor :base_code, :rates
 
@@ -14,6 +15,8 @@ class ExchangeRateApi
     elsif response.code.to_i > 500
       raise ServerError, 'There was an error communicating with the API'
     end
+  rescue JSON::ParseError => e
+    raise NonJsonResponse.new(e)
   end
 
   def initialize(attributes = {})
