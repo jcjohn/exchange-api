@@ -1,6 +1,8 @@
 class ExchangeRateApi
   require 'net/http'
   
+  ServerError = Class.new(StandardError)
+  
   attr_accessor :base_code, :rates
 
   def self.call(base_currency)
@@ -9,6 +11,8 @@ class ExchangeRateApi
 
     if response.code == '200'
       new(JSON.parse(response.body))
+    elsif response.code.to_i > 500
+      raise ServerError, 'There was an error communicating with the API'
     end
   end
 
